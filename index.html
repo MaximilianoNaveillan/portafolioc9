@@ -24,10 +24,31 @@
                    <a href=""> Linkedin</a>
                 </li>
             </ul>
-            <button class="btn btn-contacto">contactame</button>
+            <button class="btn btn-contacto" onclick="mostrarFormulario()">contactame</button>
         </nav>
     </header>
     <main>
+        <div class="overlay" role="button" onclick="cerrarFormulario()"></div>
+        <div class="popup-container">
+            <div class="popup">
+                <h1>Contacto</h1>
+        
+                <form id="form">
+                    <div class="field">
+                    <label for="from_name">Nombre</label>
+                    <input type="text" name="from_name" id="from_name">
+                    </div>
+                    <div class="field">
+                    <label for="mensaje">mensaje</label>
+                    <input type="text" name="mensaje" id="mensaje">
+                    </div>
+                
+                    <div class="form-action">
+                        <input type="submit" id="button" value="Enviar" >
+                    </div>
+                </form>
+            </div>
+        </div>
         <section id="portafolio">
             <div id="inicio" >
                 <img src="assets/images/juan.png" alt="Juan" class="yo">
@@ -73,7 +94,10 @@
         <span>juanandresperezgeneration.@generatrion.org</span>
     </footer>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="/proyectos.js"></script>
+<script src="/config.js"></script>
 <script src="/app.js"></script>
+
 
 </html>

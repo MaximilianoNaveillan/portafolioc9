@@ -1,6 +1,66 @@
 const proyectoscontainer = document.querySelector(".proyectos-container");
+const btn = document.querySelector("#button")
 
+emailjs.init(config.emailjsUserId)
+
+
+function mostrarFormulario(){
+    document.querySelector('.overlay').style.display='block';
+    document.querySelector('.popup-container').style.display='block';
+}
+
+function cerrarFormulario(){
+    document.querySelector('.overlay').style.display='none';
+    document.querySelector('.popup-container').style.display='none';
+}
+
+
+document.getElementById('form')
+.addEventListener('submit', function(event){
+    event.preventDefault(); // ===> captura, bloquea el evento
+
+    btn.value = "Enviando..."
+
+    const serviceID = 'default_service';
+   const templateID = config.emailTemplate;
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+
+})
+
+
+let render= '';
 proyectosData.forEach((proyecto,index) =>{
+
+    render=render+`<div class="proyecto-card">
+    <img 
+    src="${proyecto.imagen}"
+    alt="${proyecto.nombre}"
+    class="proyecto-img"
+    >
+    <div class="proyecto-info">
+        <div class="proyecto-nombre">
+            ${proyecto.nombre}
+        </div>
+        <div class="proyecto-descripcion">
+            ${proyecto.descripcion}
+        </div>
+        <a 
+        class="proyecto-enlace"
+        href="${proyecto.enlaceGithub}">
+        ver en Github.
+        </a>
+    </div>
+    
+    </div>`
+    /* 
     //  1)
     // Crear un nuevo elemento 'div' peara representar una tarjeta de producto
     const proyectoCard=document.createElement('div');
@@ -58,4 +118,7 @@ proyectosData.forEach((proyecto,index) =>{
     // 1)
     // agregar el elemento de clase proyecto card
     proyectoscontainer.appendChild(proyectoCard)
-})
+    */
+}) 
+
+proyectoscontainer.innerHTML= render
