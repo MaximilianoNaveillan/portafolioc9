@@ -17,4 +17,11 @@ const proyectosData = [
         enlaceGithub: "https://github.com/tu-usuario/proyecto2",
         imagen: "assets/proyectos/proyecto-1.jpg",
     },
+    {
+        nombre: "Proyecto 4",
+        descripcion: "Descripción del Proyecto 4.",
+        enlaceGithub: "https://github.com/tu-usuario/proyecto2",
+        imagen: "assets/proyectos/proyecto-1.jpg",
+    },
 ];
+

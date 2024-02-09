@@ -145,6 +145,7 @@ footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap:15px;
     padding: 60px 20px;   
 }
 
